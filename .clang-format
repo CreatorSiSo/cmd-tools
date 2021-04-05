@@ -1,0 +1,116 @@
+# Configuration of clang-format
+# =============================
+
+# This causes parameters on continuations to stack after the open brace,
+# instead of getting wrapped and indented.
+#
+#   like_this(parameter_one,
+#             parameter_two,
+#             parameter_three);
+#
+AlignAfterOpenBracket: Align
+
+# Disallow short functions on one line; break them up.
+AllowShortBlocksOnASingleLine: 'false'
+
+# These two settings trigger stacking of parameters in most cases; this is
+# easier to read and also makes diffs easier to read (since an added or removed
+# parameter is obvious). For example, function calls will look like this:
+#
+#   like_this(parameter_one,
+#             parameter_two,
+#             parameter_three,
+#             parameter_four,
+#             parameter_five,
+#             parameter_six);
+#
+# instead of this
+#
+#   like_this(parameter_one, parameter_two, parameter_three, parameter_four,
+#             parameter_five, parameter_six);
+#
+BinPackArguments: 'false'
+BinPackParameters: 'false'
+
+# 120 is the Blender standard. However, 80 columns is generally preferred.
+# Since 120 should be the exception, use a 80-column limit for clang format. If
+# this needs to be different, then a developer has two choices: Either manually
+# change the result of running clang-format, or introduce '// clang-format off'
+# and '// clang format on' markers to disable clang-format for that section.
+ColumnLimit: '80'
+
+# Cause initializer lists to have one member initialized per line, in the case
+# that all initializers can't fit on a single line.
+ConstructorInitializerAllOnOneLineOrOnePerLine: 'true'
+
+# Don't indent the : after a constructor. For example:
+#
+#   explicit foo_class ()
+#   : member1_(5)
+#   {
+#   }
+#
+ConstructorInitializerIndentWidth: '0'
+
+# This will unfortunately use spaces in some cases where it's not desired (like
+# function calls) but the overall result is better since it will allow
+# alignment to work properly with different tab width settings.
+ContinuationIndentWidth: '8'
+
+# This tries to match Blender's style as much as possible. One
+BreakBeforeBraces: 'Custom'
+BraceWrapping: {
+    AfterClass: 'true'
+    AfterControlStatement: 'false'
+    AfterEnum : 'false'
+    AfterFunction : 'true'
+    AfterNamespace : 'false'
+    AfterStruct : 'false'
+    AfterUnion : 'false'
+    BeforeCatch : 'true'
+    BeforeElse : 'true'
+    IndentBraces : 'false'
+}
+
+# For switch statements, indent the cases.
+IndentCaseLabels: 'true'
+
+# TODO: After clang 6.0 is released more broadly, turn this option on. It will
+# indent after the hash inside preprocessor directives, as is typically done
+# now. Unfortunately for now, this means some preprocessor directives won't be
+# formatted quite correctly. However, this is a small price to pay for the
+# overall utility of clang-format.
+#IndentPPDirectives: 'AfterHash'
+
+SpaceAfterTemplateKeyword: 'false'
+
+# Use "if (...)" instead of "if(...)", but have function calls like foo().
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: 'false'
+
+# Use two spaces before trailing comments, for example
+#
+#   foo = bar;  /* comment */
+#
+SpacesBeforeTrailingComments: '2'
+
+# Blender uses tabs for indentation, but assume 4-space tabs.
+# Note: TabWidth and IndentWidth must be the same, or strange things happen.
+UseTab: 'ForIndentation'
+TabWidth: '4'
+IndentWidth: '4'
+
+# Add a big penalty on breaking after the return type of functions. For example,
+#
+#   static void foo(...)
+#
+# instead of
+#
+#   static void
+#   foo(very long content here that maybe could be stacked)
+#
+PenaltyReturnTypeOnItsOwnLine: 10000
+
+# There are macros in Blender for custom for loops; tell Clang to treat them
+# like loops rather than an expression, and so put the { on the same line.
+ForEachMacros: ['BMO_ITER', 'BM_ITER_MESH', 'BM_ITER_ELEM']
