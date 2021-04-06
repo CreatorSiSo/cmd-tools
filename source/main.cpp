@@ -1,21 +1,8 @@
 #include <iostream>
 #include <string>
 
-std::string print(std::string text, std::string textColor,
-                  std::string bgColor = "black") {
+#include "../libraries/internal/ANSI.hpp"
 
-  std::string ANSIClear = "\033[0m";
-
-  std::string ANSICol("\x1B[31m" + text + ANSIClear);
-
-  /* size_t index = 0;
-
-  while ((index = text.find(textColor, index)) != std::string::npos) {
-    text.replace(index, textColor.length(), ANSICol);
-    index += ANSICol.length();
-  } */
-  return (ANSICol);
-}
 
 std::string cmdExit = "exit";
 std::string cmdHelp = "help";
