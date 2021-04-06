@@ -40,6 +40,20 @@
         "cctype": "cpp",
         "compare": "cpp",
         "concepts": "cpp",
-        "iterator": "cpp"
+        "iterator": "cpp",
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "clocale": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "algorithm": "cpp",
+        "memory_resource": "cpp",
+        "optional": "cpp",
+        "string_view": "cpp",
+        "fstream": "cpp",
+        "sstream": "cpp"
     }
 }
