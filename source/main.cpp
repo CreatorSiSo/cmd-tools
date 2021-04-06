@@ -3,23 +3,7 @@
 
 #include "../libraries/internal/ANSI.hpp"
 
-
-std::string cmdExit = "exit";
-std::string cmdHelp = "help";
-
-std::string exitMsgs[6] = {
-    "Goodbye", "Bye", "Cya", "Take care", "Have a nice day"
-    /* "Take a cookie or two" */
-};
-
-class cmd {
-private:
-  std::string Name;
-  std::string helpMsg;
-
-public:
-  cmd(/* args */);
-};
+#include "commands.hpp"
 
 int main() {
   std::string cmdInput = "";
