@@ -7,9 +7,8 @@
 
 int main() {
   std::string cmdInput = "";
-  bool Run = true;
 
-  do {
+  while (1) {
     std::cin >> cmdInput;
 
     if (cmdInput == cmdHelp) {
@@ -19,16 +18,16 @@ int main() {
                    "afihfd si uhza\n";
     } else if (cmdInput == cmdExit) {
       std::cout << "\x1B[31mGoodbye\033[0m";
-      Run = false;
+      break;
     } else if (cmdInput == "print") {
-      std::cout << print("This prints really anything in many colors!!!", "red")
+      std::cout << ANSI("This prints really anything in red!!!", "red")
                 << std::endl;
     } else {
       std::cout << "There is no command called " << cmdInput << std::endl;
     }
 
     cmdInput.clear();
-  } while (Run == true);
+  }
 
   return 0;
 }
