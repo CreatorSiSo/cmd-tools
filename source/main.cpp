@@ -55,8 +55,8 @@ int main() {
     } else {
       std::cout << "There is no command called " << cmdInput << std::endl;
     }
-    cmdInput = "";
 
+    cmdInput.clear();
   } while (Run == true);
 
   return 0;
