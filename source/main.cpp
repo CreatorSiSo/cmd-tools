@@ -54,6 +54,9 @@ int main() {
     } else if (cmdInput == cmdExit) {
       std::cout << "\x1B[31mGoodbye\033[0m";
       Run = false;
+    } else if (cmdInput == "print") {
+      std::cout << print("This prints really anything in many colors!!!", "red")
+                << std::endl;
     } else {
       std::cout << "There is no command called" << cmdInput << std::endl;
     }
