@@ -15,11 +15,11 @@ int main() {
     std::cin >> cmdInput;
 
     if (CheckCmds(cmdInput, cmdHelp)) {
-      ANSIPrint(
-          "calc:  Shoehjshfush ihsdhudh.\n"
-          "math:  Sjdfhjdf hshfduh jijfsh shfh\n"
-          "other: siho fshash fsahsa aiuhshsahfishaf iuhs aigfs afihfd si uhza",
-          "info");
+      ANSIPrint("calc:  Shoehjshfush ihsdhudh. \n"
+                "math:  Sjdfhjdf hshfduh jijfsh shfh \n"
+                "other: siho fshash fsahsa aiuhshsahfishaf iuhs aigfs afihfd "
+                "si uhza ",
+                "info");
     } else if (CheckCmds(cmdInput, cmdExit)) {
       /* std::cout << "\x1B[31mGoodbye\033[0m"; */
       ANSIPrint("Goodbye", "error");
