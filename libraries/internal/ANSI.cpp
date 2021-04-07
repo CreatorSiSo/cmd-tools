@@ -1,20 +1,27 @@
 #include <iostream>
 #include <string>
 
-std::string ANSI(std::string txt, std::string Color = "white",
-                 std::string bgColor = "black") {
+#include "ANSI.hpp"
 
+std::string ANSIFormat(std::string txt) {
+  std::string ANSIInit = "\033[";
   std::string ANSIClear = "\033[0m";
-  std::string ANSIDefaultCol = "\x1B[91m";
-  std::string ANSIDefaultBgCol = "\x1B[31m";
 
-  std::string outputText(ANSIDefaultCol + txt + ANSIClear);
+  std::string DefaultCol = "38;2;" + ANSIDefaultCol;
+  std::string DefaultBgCol = "48;2;" + ANSIDefaultBgCol;
 
-  /* size_t index = 0;
+  txt = ANSIInit + DefaultCol + "m" + txt + ANSIClear;
 
-  while ((index = text.find(textColor, index)) != std::string::npos) {
-    text.replace(index, textColor.length(), ANSICol);
-    index += ANSICol.length();
-  } */
-  return (outputText);
+  /* + ";" + ANSIDefaultBgCol */
+  /*
+  size_t index = 0;
+
+  while ((index = txt.find(Color, index)) != std::string::npos) {
+    txt.replace(index, Color.length(), ANSIDefaultCol);
+    index += ANSIDefaultCol.length();
+  }
+  */
+
+  return (txt);
+}
 }
