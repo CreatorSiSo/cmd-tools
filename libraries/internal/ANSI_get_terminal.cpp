@@ -6,7 +6,7 @@
 #include <sys/ioctl.h>
 #endif // Windows/Linux
 
-void GetTerminalSize(int &width, int &height) {
+void ANSIGetTerminalSize(int &width, int &height) {
 #if defined(_WIN32)
   CONSOLE_SCREEN_BUFFER_INFO csbi;
   GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);

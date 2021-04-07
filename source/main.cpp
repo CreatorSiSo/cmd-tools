@@ -2,13 +2,13 @@
 #include <string>
 
 #include "../libraries/internal/ANSI_functions.hpp"
+#include "../libraries/internal/ANSI_get_terminal.hpp"
 
 #include "commands.hpp"
-#include "get_terminal_info.hpp"
 
 int main() {
   int width = 0, height = 0;
-  GetTerminalSize(width, height);
+  ANSIGetTerminalSize(width, height);
   std::cout << "width=" << width << ", height=" << height << std::endl;
 
   std::string cmdInput = "";
