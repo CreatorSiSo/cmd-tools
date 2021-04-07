@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+#include <get_terminal_info.hpp>
+
 std::string print(std::string text, std::string textColor,
                   std::string bgColor = "black") {
 
@@ -35,6 +37,10 @@ public:
 };
 
 int main() {
+  int width = 0, height = 0;
+  GetTerminalSize(width, height);
+  std::cout << "width=" << width << ", height=" << height << std::endl;
+
   std::string cmdInput = "";
   bool Run = true;
 
