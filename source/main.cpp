@@ -11,17 +11,17 @@ int main() {
   while (1) {
     std::cin >> cmdInput;
 
-    if (cmdInput == cmdHelp) {
       std::cout << "calc:  Shoehjshfush ihsdhudh.\n"
                 << "math:  Sjdfhjdf hshfduh jijfsh shfh\n"
                 << "other: siho fshash fsahsa aiuhshsahfishaf iuhs aigfs "
                    "afihfd si uhza\n";
-    } else if (cmdInput == cmdExit) {
       std::cout << "\x1B[31mGoodbye\033[0m";
+    if (CheckCmds(cmdInput, cmdHelp)) {
+    } else if (CheckCmds(cmdInput, cmdExit)) {
       break;
-    } else if (cmdInput == "print") {
       std::cout << ANSI("This prints really anything in red!!!", "red")
                 << std::endl;
+    } else if (CheckCmds(cmdInput, "print")) {
     } else {
       std::cout << "There is no command called " << cmdInput << std::endl;
     }
