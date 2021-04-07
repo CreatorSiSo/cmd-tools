@@ -24,4 +24,24 @@ std::string ANSIFormat(std::string txt) {
 
   return (txt);
 }
+
+std::string ANSIPrint(std::string print, std::string level = "text") {
+  if (level == "text") {
+    std::cout << "\033[38;2;245;245;245m" + print + "\033[0m" << std::endl;
+  } else if (level == "info") {
+    std::cout << "\033[38;2;161;214;255;48;2;38;50;60m" + print + "\033[0m"
+              << std::endl;
+  } else if (level == "warn") {
+    std::cout << "\033[38;2;255;230;161;48;2;60;54;38m" + print + "\033[0m"
+              << std::endl;
+  } else if (level == "error") {
+    std::cout << "\033[38;2;241;76;76;48;2;52;38;38m" + print + "\033[0m"
+              << std::endl;
+  } else {
+    std::cout << "\033[38;2;255;0;255;48;2;0;0;0m" + print + "\033[0m"
+              << std::endl;
+  }
+
+  /* std::cout << ANSIFormat(print) << std::endl; */
+  return "";
 }
