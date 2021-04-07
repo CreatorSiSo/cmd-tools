@@ -6,7 +6,6 @@
 #include "commands.hpp"
 #include "get_terminal_info.hpp"
 
-
 int main() {
   int width = 0, height = 0;
   GetTerminalSize(width, height);
