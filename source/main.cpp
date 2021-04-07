@@ -8,7 +8,10 @@
 int main() {
   std::string cmdInput = "";
 
+  // escape sequences for commandline setup
+
   while (1) {
+    std::cout << " > ";
     std::cin >> cmdInput;
 
     if (CheckCmds(cmdInput, cmdHelp)) {
